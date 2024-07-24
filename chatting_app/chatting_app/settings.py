@@ -29,7 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
+
+
+AUTH_USER_MODEL = 'user.CustomUser'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,7 +45,7 @@ INSTALLED_APPS = [
     'daphne',
     'django.contrib.staticfiles',
     'channels',
-    'interaction'
+    'interaction',
     'user'
 ]
 
