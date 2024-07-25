@@ -17,7 +17,76 @@
 
 html{
     font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.form-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.4rem;
+    width: 100%;
+}
+
+.form-heading{
+    display: inline-block;
+    font-size: 2.4rem;
+    margin: 0 auto;
+    border-bottom: 2px solid #50C878;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.form-inputs{
+    width: 50%;
+    margin-bottom: 1.6rem;
+    padding: 1rem;
+    border: none;
+    border: 1px solid #999;
+    border-radius: 1.5rem;
+}
+
+.form-label{
+    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+}
+
+.form-submit-button{
+    margin: 1.6rem auto;
+    border: none;
+    border: 1px solid #999;
+    border-radius: 2rem;
+    padding: 1.5rem 3.5rem;
+    background-color: #50C878;
+    color: white;
+    transition: all 0.3s;
+}
+
+.form-submit-button:hover{
+    background-color: #3CB371;
+    transform: translateY(-1rem);
+}
