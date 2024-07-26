@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate
 
-from .forms import CustomUserForm
+from .forms import CustomUserForm, LoginForm
 # Create your views here.
 
 def signup_user(request):
@@ -21,4 +21,23 @@ def signup_user(request):
 
 
 def login_user(request):
-    pass
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request, email=email, password=password) 
+            if user is not None:
+                login(request, user)
+
+            else:
+                form.add_error('email', 'Invalid email or password')
+    else:
+        form = LoginForm()
+
+    return render(request, 'user/login.html', {'form' : form})
+
+
+def logout_user(request):
+    logout(request)
+    

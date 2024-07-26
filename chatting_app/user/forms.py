@@ -21,3 +21,8 @@ class CustomUserForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].help_text = ''
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-inputs', 'id': 'email', 'placeholder': 'johnsmith@gmail.com'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-inputs', 'id': 'password', 'placeholder': 'Your Password'}))
