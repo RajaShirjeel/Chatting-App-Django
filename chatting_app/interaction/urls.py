@@ -4,5 +4,6 @@ from . import views
 app_name = 'interaction'
 
 urlpatterns = [
-    path('', views.chat_page, name='chat_page'),
+    path('', views.all_chats, name='all_chats'),
+    path('chat/', views.chat_view, name='chat_page'),
 ]

@@ -90,3 +90,117 @@ html{
     background-color: #3CB371;
     transform: translateY(-1rem);
 }
+
+/* Chats page */
+
+.chat-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-wrapper{
+    box-shadow: 0 0  12px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    border-radius: 1.5rem;
+
+}
+
+.chat-header-container{
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    background-color: #1a8d1a;
+    color: white;
+    padding: 2rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+
+}
+
+.chat-icon{
+    height: 2.4rem;
+    width: 2.4rem;
+
+}
+
+.chat-header{
+    font-size: 2.4rem;
+}
+
+.chatting-section{
+    margin-top: 0.8rem;
+    color: #4d824d;
+    font-size: 1.6rem;
+    background-color: white;
+    margin-bottom: 2rem;
+    padding: 0 1.6rem;
+}
+
+.chatting-section-header{
+    border-bottom: 2px solid #004d00;
+    display: inline-block;
+}
+
+.chats-display{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 0 1.6rem 1.6rem 1.6rem;
+}
+
+.chat{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.person-icon{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.sender-name{
+    font-size: 1.6rem;
+}
+
+.receiver-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.receiver-name{
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #1a8d1a;
+}
+
+.exit-logo{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.4rem;
+    color: #1a8d1a;
+}
+
+.chat-area{
+    background-color: #e6e6e6;
+    height: 55rem;
+    display: flex;
+    align-items: end;
+}
+
+.message-box{
+    height: 3rem;
+    width: 53rem;
+    padding: 0.5rem;
+}
+
+.send-button{
+    color: white;
+    text-decoration: none;
+    background-color: #1a8d1a;
+    padding: 1.1rem 2.1rem 0.7rem 2rem;
+
+}

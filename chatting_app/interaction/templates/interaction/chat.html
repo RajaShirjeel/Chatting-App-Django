@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="chat-container">
+        <div class="chat-wrapper">
+            <div class="chat-header-container">
+                <ion-icon name="chatbubble" class="chat-icon"></ion-icon>
+                <h1 class="chat-header">Chatting App</h1>
+            </div>
+
+            <div class="receiver-container">
+                <h3 class="receiver-name">Binod</h3>
+                <ion-icon name="exit-outline" class="exit-logo"></ion-icon>
+            </div>
+
+            <div class="chat-area">
+                <form method="post">
+                    <input type="text" class="message-box" placeholder="Type a message...">
+                    <a href="#" type="submit" class="send-button">Send <ion-icon name="paper-plane-outline" class="plane-icon"></ion-icon></a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
