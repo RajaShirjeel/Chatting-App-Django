@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 
 from .forms import CustomUserForm, LoginForm
@@ -29,6 +29,7 @@ def login_user(request):
             user = authenticate(request, email=email, password=password) 
             if user is not None:
                 login(request, user)
+                return redirect('interaction:all_chats')
 
             else:
                 form.add_error('email', 'Invalid email or password')
@@ -40,4 +41,4 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    
+    return redirect('user:signup_user')

@@ -10,25 +10,23 @@
             <div class="chatting-section">
                 <h2 class="chatting-section-header">All Chats</h2>
             </div>
-
+            
             <div class="chats-display">
-                <div class="chat">
-                    <ion-icon name="person-circle-outline" class="person-icon"></ion-icon>
-                    <h3 class="sender-name">Person 1</h3>
-                </div>
-
-                <div class="chat">
-                    <ion-icon name="person-circle-outline" class="person-icon"></ion-icon>
-                    <h3 class="sender-name">Person 2</h3>
-                </div>
-
-                <div class="chat">
-                    <ion-icon name="person-circle-outline" class="person-icon"></ion-icon>
-                    <h3 class="sender-name">Person 3</h3>
-                </div>
+                {% for user in users %}
+                {% if user != request.user %}
+                        <a href="{% url 'interaction:chat_page' pk=user.pk %}" class="no-dec">
+                            <div class="chat">
+                                <ion-icon name="person-circle-outline" class="person-icon"></ion-icon>
+                                <h3 class="sender-name">{{user.username}}</h3>
+                            </div>
+                        </a>
+                {% endif %}
+                {% endfor %}
             </div>
-
-
+        </div>
+        <div class="logout-button-con">
+            <a href="{% url 'user:logout_user' %}" class="logout-button">Logout</a>
         </div>
     </div>
+
 {% endblock %}

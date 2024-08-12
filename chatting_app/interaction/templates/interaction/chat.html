@@ -1,22 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="chat-container">
-        <div class="chat-wrapper">
-            <div class="chat-header-container">
-                <ion-icon name="chatbubble" class="chat-icon"></ion-icon>
-                <h1 class="chat-header">Chatting App</h1>
-            </div>
+    <div class="chati">
+        <div class="chat-container">
+            <div class="chat-wrapper">
+                <div class="chat-header-container">
+                    <ion-icon name="chatbubble" class="chat-icon"></ion-icon>
+                    <h1 class="chat-header">Chatting App</h1>
+                </div>
 
-            <div class="receiver-container">
-                <h3 class="receiver-name">Binod</h3>
-                <ion-icon name="exit-outline" class="exit-logo"></ion-icon>
-            </div>
+                <div class="receiver-container">
+                    <h3 class="receiver-name">{{user.username}}</h3>
+                    <a href="{% url 'interaction:all_chats' %}"><ion-icon name="exit-outline" class="exit-logo"></ion-icon></a>
+                </div>
 
-            <div class="chat-area">
-                <form method="post">
-                    <input type="text" class="message-box" placeholder="Type a message...">
-                    <a href="#" type="submit" class="send-button">Send <ion-icon name="paper-plane-outline" class="plane-icon"></ion-icon></a>
-                </form>
+                <div class="chats">
+                    {% for message in messages %}
+                        {% if message.sender == request.user %}
+                            <div class="chat-message chat-user">
+                                <p>{{message.message}}</p>
+                            </div>
+                        {% else %}
+                            <div class="chat-message chat-other">
+                                <p>{{message.message}}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="chat-area">
+                    <form method="post" action="{% url 'interaction:create_message' %}">
+                        {% csrf_token %}
+                        <input hidden type="text" name="other_user" value="{{user.pk}}">
+                        <div class="message-button">
+                            <input type="text" class="message-box" placeholder="Type a message..." name="message">
+                            <button type="submit" class="send-button">Send <ion-icon name="paper-plane-outline" class="plane-icon"></ion-icon></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
