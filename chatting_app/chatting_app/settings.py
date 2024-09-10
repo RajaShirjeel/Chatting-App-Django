@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-yi-+ndo5x)9f1d+czt+2*363c^i12^oj&&e@k6h0u*3dxoah&t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.100', 'localhost', '127.0.0.1', '192.168.29.78' ]
+
 
 
 
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'daphne',
     'django.contrib.staticfiles',
     'channels',
     'interaction',
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,9 +81,12 @@ TEMPLATES = [
 ]
 
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],  # Make sure the port is an integer
+        },
+    },
 }
 
 ASGI_APPLICATION = 'chatting_app.asgi.application'
@@ -145,7 +149,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS  = [
     BASE_DIR / "static"
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

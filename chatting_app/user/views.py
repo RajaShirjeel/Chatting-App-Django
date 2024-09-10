@@ -12,7 +12,7 @@ def signup_user(request):
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
-            login(request, user)
+            return redirect('user:login_user')
     
     else:
         form = CustomUserForm()

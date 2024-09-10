@@ -1,3 +1,5 @@
 channels
 Django
+redis
 daphne
+whitenoise

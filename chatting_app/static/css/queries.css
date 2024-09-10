@@ -1,0 +1,18 @@
+@media (max-width:600px){
+    .chat-header{
+        font-size: 1.7rem;
+    }
+    .chat-icon{
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .chatting-section-header{
+        font-size: 1.5rem;
+    }
+    .chat-wrapper{
+        width: 90%;
+    }
+    .message-box{
+        width: 30rem;
+    }
+}

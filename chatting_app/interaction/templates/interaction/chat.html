@@ -30,7 +30,7 @@
                 <div class="chat-area">
                     <form method="post" action="{% url 'interaction:create_message' %}">
                         {% csrf_token %}
-                        <input hidden type="text" name="other_user" value="{{user.pk}}">
+                        <input hidden type="text" name="other_user" value="{{user.pk}}" class="input-user">
                         <div class="message-button">
                             <input type="text" class="message-box" placeholder="Type a message..." name="message">
                             <button type="submit" class="send-button">Send <ion-icon name="paper-plane-outline" class="plane-icon"></ion-icon></button>
@@ -40,4 +40,6 @@
             </div>
         </div>
     </div>
+    
+    
 {% endblock %}
